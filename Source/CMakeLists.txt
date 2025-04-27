@@ -6,6 +6,7 @@ juce_add_plugin(sMexoscope
         # ICON_SMALL ...
         COMPANY_NAME "Smartelectronix"                          # Specify the name of the plugin's author
         BUNDLE_ID "com.smartelectronix.sMexoscope"
+        COMPANY_WEBSITE "https://github.com/hollance/sMexoscope"
         IS_SYNTH FALSE                       # Is this a synth or an effect?
         NEEDS_MIDI_INPUT FALSE               # Does the plugin need midi input?
         NEEDS_MIDI_OUTPUT FALSE              # Does the plugin need midi output?
@@ -46,6 +47,13 @@ target_link_libraries(sMexoscope
 clap_juce_extensions_plugin(TARGET sMexoscope
         CLAP_ID "com.smartelectronix.sMexoscope"
         CLAP_FEATURES CLAP_PLUGIN_FEATURE_AUDIO_EFFECT "oscilloscope"
+)
+
+set_target_properties(
+        "sMexoscope_CLAP"
+        PROPERTIES
+        XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER
+        "com.smartelectronix.sMexoscope"
 )
 
 if (MSVC)
